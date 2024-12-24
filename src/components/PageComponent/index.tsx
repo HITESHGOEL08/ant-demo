@@ -12,15 +12,22 @@ const PageComponent: FC<PageComponentProps> = (props) => {
     const { styles } = useStyles();
 
     return (
-        <GridContent>
-            <>
-                <div>
-                    <div>{props.title}</div>
-                </div>
+        // <GridContent>
+        <div
+            className={styles.main}>
+            <div
+                className={styles.topHeader}>
+                <div className={styles.title}>{props.title}</div>
+                <div></div>
+            </div>
 
-                <Suspense fallback={null}>{props.children}</Suspense>
-            </>
-        </GridContent>
+            <Suspense fallback={null} >
+                <div className={styles.childComponent}>
+                    {props.children}
+                </div>
+            </Suspense>
+        </div>
+        // </GridContent>
     );
 };
 export default PageComponent;
