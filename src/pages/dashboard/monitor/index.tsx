@@ -24,7 +24,8 @@ const Monitor: FC = () => {
   });
   return (
     <GridContent>
-      <>
+      <></>
+      {/* <>
         <Row gutter={24}>
           <Col
             xl={18}
@@ -178,7 +179,7 @@ const Monitor: FC = () => {
             </Card>
           </Col>
         </Row>
-      </>
+      </> */}
     </GridContent>
   );
 };

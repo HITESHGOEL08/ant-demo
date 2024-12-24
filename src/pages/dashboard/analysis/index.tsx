@@ -96,7 +96,8 @@ const Analysis: FC<AnalysisProps> = () => {
   const activeKey = currentTabKey || (data?.offlineData[0] && data?.offlineData[0].name) || '';
   return (
     <GridContent>
-      <>
+      <></>
+      {/* <>
         <Suspense fallback={<PageLoading />}>
           <IntroduceRow loading={loading} visitData={data?.visitData || []} />
         </Suspense>
@@ -150,7 +151,7 @@ const Analysis: FC<AnalysisProps> = () => {
             handleTabChange={handleTabChange}
           />
         </Suspense>
-      </>
+      </> */}
     </GridContent>
   );
 };

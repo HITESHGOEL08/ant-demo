@@ -126,159 +126,162 @@ const Workplace: FC = () => {
   };
 
   return (
-    <PageContainer
-      content={
-        <PageHeaderContent
-          currentUser={{
-            avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
-            name: '吴彦祖',
-            userid: '00000001',
-            email: 'antdesign@alipay.com',
-            signature: '海纳百川，有容乃大',
-            title: '交互专家',
-            group: '蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED',
-          }}
-        />
-      }
-      extraContent={<ExtraContent />}
-    >
-      <Row gutter={24}>
-        <Col xl={16} lg={24} md={24} sm={24} xs={24}>
-          <Card
-            className={styles.projectList}
-            style={{
-              marginBottom: 24,
-            }}
-            title="进行中的项目"
-            bordered={false}
-            extra={<Link to="/">全部项目</Link>}
-            loading={projectLoading}
-            bodyStyle={{
-              padding: 0,
-            }}
-          >
-            {projectNotice.map((item) => (
-              <Card.Grid className={styles.projectGrid} key={item.id}>
-                <Card
-                  bodyStyle={{
-                    padding: 0,
-                  }}
-                  bordered={false}
-                >
-                  <Card.Meta
-                    title={
-                      <div className={styles.cardTitle}>
-                        <Avatar size="small" src={item.logo} />
-                        <Link to={item.href || '/'}>{item.title}</Link>
-                      </div>
-                    }
-                    description={item.description}
-                  />
-                  <div className={styles.projectItemContent}>
-                    <Link to={item.memberLink || '/'}>{item.member || ''}</Link>
-                    {item.updatedAt && (
-                      <span className={styles.datetime} title={item.updatedAt}>
-                        {dayjs(item.updatedAt).fromNow()}
-                      </span>
-                    )}
-                  </div>
-                </Card>
-              </Card.Grid>
-            ))}
-          </Card>
-          <Card
-            bodyStyle={{
-              padding: 0,
-            }}
-            bordered={false}
-            className={styles.activeCard}
-            title="动态"
-            loading={activitiesLoading}
-          >
-            <List<ActivitiesType>
-              loading={activitiesLoading}
-              renderItem={(item) => renderActivities(item)}
-              dataSource={activities}
-              className={styles.activitiesList}
-              size="large"
-            />
-          </Card>
-        </Col>
-        <Col xl={8} lg={24} md={24} sm={24} xs={24}>
-          <Card
-            style={{
-              marginBottom: 24,
-            }}
-            title="快速开始 / 便捷导航"
-            bordered={false}
-            bodyStyle={{
-              padding: 0,
-            }}
-          >
-            <EditableLinkGroup onAdd={() => {}} links={links} linkElement={Link} />
-          </Card>
-          <Card
-            style={{
-              marginBottom: 24,
-            }}
-            bordered={false}
-            title="XX 指数"
-            loading={data?.radarData?.length === 0}
-          >
-            <div>
-              <Radar
-                height={343}
-                data={data?.radarData || []}
-                xField="label"
-                colorField="name"
-                yField="value"
-                shapeField="smooth"
-                area={{
-                  style: {
-                    fillOpacity: 0.4,
-                  },
-                }}
-                axis={{
-                  y: {
-                    gridStrokeOpacity: 0.5,
-                  },
-                }}
-                legend={{
-                  color: {
-                    position: 'bottom',
-                    layout: { justifyContent: 'center' },
-                  },
-                }}
-              />
-            </div>
-          </Card>
-          <Card
-            bodyStyle={{
-              paddingTop: 12,
-              paddingBottom: 12,
-            }}
-            bordered={false}
-            title="团队"
-            loading={projectLoading}
-          >
-            <div className={styles.members}>
-              <Row gutter={48}>
-                {projectNotice.map((item) => {
-                  return (
-                    <Col span={12} key={`members-item-${item.id}`}>
-                      <a>
-                        <Avatar src={item.logo} size="small" />
-                        <span className={styles.member}>{item.member.substring(0, 3)}</span>
-                      </a>
-                    </Col>
-                  );
-                })}
-              </Row>
-            </div>
-          </Card>
-        </Col>
-      </Row>
-    </PageContainer>
+    // <PageContainer
+    //   content={
+    //     <></>
+    //     // <PageHeaderContent
+    //     //   currentUser={{
+    //     //     avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
+    //     //     name: '吴彦祖',
+    //     //     userid: '00000001',
+    //     //     email: 'antdesign@alipay.com',
+    //     //     signature: '海纳百川，有容乃大',
+    //     //     title: '交互专家',
+    //     //     group: '蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED',
+    //     //   }}
+    //     // />
+    //   }
+    //   extraContent={<ExtraContent />}
+    // >
+    //   <></>
+    //   {/* <Row gutter={24}>
+    //     <Col xl={16} lg={24} md={24} sm={24} xs={24}>
+    //       <Card
+    //         className={styles.projectList}
+    //         style={{
+    //           marginBottom: 24,
+    //         }}
+    //         title="进行中的项目"
+    //         bordered={false}
+    //         extra={<Link to="/">全部项目</Link>}
+    //         loading={projectLoading}
+    //         bodyStyle={{
+    //           padding: 0,
+    //         }}
+    //       >
+    //         {projectNotice.map((item) => (
+    //           <Card.Grid className={styles.projectGrid} key={item.id}>
+    //             <Card
+    //               bodyStyle={{
+    //                 padding: 0,
+    //               }}
+    //               bordered={false}
+    //             >
+    //               <Card.Meta
+    //                 title={
+    //                   <div className={styles.cardTitle}>
+    //                     <Avatar size="small" src={item.logo} />
+    //                     <Link to={item.href || '/'}>{item.title}</Link>
+    //                   </div>
+    //                 }
+    //                 description={item.description}
+    //               />
+    //               <div className={styles.projectItemContent}>
+    //                 <Link to={item.memberLink || '/'}>{item.member || ''}</Link>
+    //                 {item.updatedAt && (
+    //                   <span className={styles.datetime} title={item.updatedAt}>
+    //                     {dayjs(item.updatedAt).fromNow()}
+    //                   </span>
+    //                 )}
+    //               </div>
+    //             </Card>
+    //           </Card.Grid>
+    //         ))}
+    //       </Card>
+    //       <Card
+    //         bodyStyle={{
+    //           padding: 0,
+    //         }}
+    //         bordered={false}
+    //         className={styles.activeCard}
+    //         title="动态"
+    //         loading={activitiesLoading}
+    //       >
+    //         <List<ActivitiesType>
+    //           loading={activitiesLoading}
+    //           renderItem={(item) => renderActivities(item)}
+    //           dataSource={activities}
+    //           className={styles.activitiesList}
+    //           size="large"
+    //         />
+    //       </Card>
+    //     </Col>
+    //     <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+    //       <Card
+    //         style={{
+    //           marginBottom: 24,
+    //         }}
+    //         title="快速开始 / 便捷导航"
+    //         bordered={false}
+    //         bodyStyle={{
+    //           padding: 0,
+    //         }}
+    //       >
+    //         <EditableLinkGroup onAdd={() => {}} links={links} linkElement={Link} />
+    //       </Card>
+    //       <Card
+    //         style={{
+    //           marginBottom: 24,
+    //         }}
+    //         bordered={false}
+    //         title="XX 指数"
+    //         loading={data?.radarData?.length === 0}
+    //       >
+    //         <div>
+    //           <Radar
+    //             height={343}
+    //             data={data?.radarData || []}
+    //             xField="label"
+    //             colorField="name"
+    //             yField="value"
+    //             shapeField="smooth"
+    //             area={{
+    //               style: {
+    //                 fillOpacity: 0.4,
+    //               },
+    //             }}
+    //             axis={{
+    //               y: {
+    //                 gridStrokeOpacity: 0.5,
+    //               },
+    //             }}
+    //             legend={{
+    //               color: {
+    //                 position: 'bottom',
+    //                 layout: { justifyContent: 'center' },
+    //               },
+    //             }}
+    //           />
+    //         </div>
+    //       </Card>
+    //       <Card
+    //         bodyStyle={{
+    //           paddingTop: 12,
+    //           paddingBottom: 12,
+    //         }}
+    //         bordered={false}
+    //         title="团队"
+    //         loading={projectLoading}
+    //       >
+    //         <div className={styles.members}>
+    //           <Row gutter={48}>
+    //             {projectNotice.map((item) => {
+    //               return (
+    //                 <Col span={12} key={`members-item-${item.id}`}>
+    //                   <a>
+    //                     <Avatar src={item.logo} size="small" />
+    //                     <span className={styles.member}>{item.member.substring(0, 3)}</span>
+    //                   </a>
+    //                 </Col>
+    //               );
+    //             })}
+    //           </Row>
+    //         </div>
+    //       </Card>
+    //     </Col>
+    //   </Row> */}
+    // </PageContainer>
+    <></>
   );
 };
 export default Workplace;
