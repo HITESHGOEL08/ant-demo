@@ -96,7 +96,7 @@ const Analysis: FC<AnalysisProps> = () => {
   };
   const activeKey = currentTabKey || (data?.offlineData[0] && data?.offlineData[0].name) || '';
   return (
-    <PageComponent title='Page 1' loading={loading}>
+    <PageComponent title='Page 1' loading={loading} enableButtons>
       <>hello</>
     </PageComponent>
   );

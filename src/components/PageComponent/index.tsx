@@ -6,6 +6,14 @@ type PageComponentProps = {
     title: string;
     loading: boolean;
     children: React.ReactElement;
+    enableButtons?: boolean;
+    firstButtonText?: string;
+    firstButtonFn?: any;
+    enableSecondButton?: boolean;
+    SecondButtonText?: string;
+    SecondButtonFn?: any;
+    enableThreeDots?: boolean;
+    threeDotsComponents?: React.ReactElement;
 };
 
 const PageComponent: FC<PageComponentProps> = (props) => {
@@ -18,7 +26,9 @@ const PageComponent: FC<PageComponentProps> = (props) => {
             <div
                 className={styles.topHeader}>
                 <div className={styles.title}>{props.title}</div>
-                <div></div>
+                <div className={styles.actionButtons} style={{ 'display': props.enableButtons ? "" : "none" }}>
+                    hello
+                </div>
             </div>
 
             <Suspense fallback={null} >
