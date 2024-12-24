@@ -18,6 +18,7 @@ import type { AnalysisData } from './data.d';
 import { fakeChartData } from './service';
 import useStyles from './style.style';
 import { getTimeDistance } from './utils/utils';
+import PageComponent from '@/components/PageComponent';
 type RangePickerValue = RangePickerProps<dayjs.Dayjs>['value'];
 type AnalysisProps = {
   dashboardAndanalysis: AnalysisData;
@@ -96,7 +97,11 @@ const Analysis: FC<AnalysisProps> = () => {
   const activeKey = currentTabKey || (data?.offlineData[0] && data?.offlineData[0].name) || '';
   return (
     <GridContent>
-      <></>
+      <>
+        <PageComponent title='Page 1' loading={loading}>
+          <>hello</>
+        </PageComponent>
+      </>
       {/* <>
         <Suspense fallback={<PageLoading />}>
           <IntroduceRow loading={loading} visitData={data?.visitData || []} />
